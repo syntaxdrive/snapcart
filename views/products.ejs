@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Sellit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2C3E50;
+            --secondary: #fff;
+            --accent: #87CEEB;
+            --light: #f0f8ff;
+            --dark: #2C3E50;
+            --gray: #708090;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .products-content {
+            padding: 40px 0;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Search Section */
+        .search-section {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: 2px solid var(--primary);
+            border-radius: 25px;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }        .category-btn {
+            background-color: var(--secondary);
+            border: 1px solid var(--primary);
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-btn.active, .category-btn:hover {
+            background-color: var(--primary);
+            color: var(--secondary);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: var(--secondary);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            height: 200px;
+            background-color: #f1f3f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .product-price {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .product-seller {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .contact-seller {
+            background-color: var(--primary);
+            color: var(--secondary);
+            border: none;
+            padding: 8px 15px;
+            width: 100%;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: auto;
+        }
+        
+        .contact-seller:hover {
+            background-color: #333;
+        }
+        
+        .contact-seller i {
+            margin-right: 8px;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+        
+        .contact-seller {
+            flex: 1;
+        }
+        
+        .report-user-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+        
+        .report-user-btn:hover {
+            background-color: #c82333;
+        }
+        
+        .report-user-btn i {
+            margin-right: 8px;
+        }
+
+        /* Buyer Caution Styles */
+        .buyer-caution {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 2px solid #ffc107;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+        }
+
+        .caution-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .caution-header i {
+            font-size: 24px;
+            color: #856404;
+            margin-right: 10px;
+        }
+
+        .caution-header h3 {
+            color: #856404;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .caution-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .caution-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+        }
+
+        .caution-item i {
+            color: #856404;
+            margin-right: 10px;
+            font-size: 16px;
+            min-width: 20px;
+        }
+
+        .caution-item span {
+            color: #856404;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .product-card {
+                margin: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        /* Image Viewer Modal */
+        .image-viewer-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .image-viewer-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+
+        .image-viewer-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .image-viewer-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 24px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .image-viewer-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .image-viewer-prev {
+            left: -70px;
+        }
+
+        .image-viewer-next {
+            right: -70px;
+        }
+
+        .image-viewer-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .image-viewer-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .image-viewer-counter {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 15px;
+        }
+
+        .image-count-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .product-image {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .product-image:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <%- include('./partials/header') %>
+
+    <div class="container products-content">
+        <h1 class="section-title">All Products</h1>
+
+        <!-- Buyer Caution Alert -->
+        <div class="buyer-caution">
+            <div class="caution-header">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Buyer Safety Tips</h3>
+            </div>
+            <div class="caution-content">
+                <div class="caution-item">
+                    <i class="fas fa-handshake"></i>
+                    <span>Meet sellers in safe, public locations on campus</span>
+                </div>
+                <div class="caution-item">
+                    <i class="fas fa-eye"></i>
+                    <span>Inspect items carefully before purchasing</span>
+                </div>
+                <div class="caution-item">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Never send money before seeing the item</span>
+                </div>
+                <div class="caution-item">
+                    <i class="fas fa-user-check"></i>
+                    <span>Prefer verified sellers when possible</span>
+                </div>
+                <div class="caution-item">
+                    <i class="fas fa-flag"></i>
+                    <span>Report suspicious activity to administrators</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search products..." class="search-input">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </div>
+
+        <div class="categories">
+            <button class="category-btn active" onclick="filterProducts('all')">All</button>
+            <button class="category-btn" onclick="filterProducts('textbooks')">Textbooks</button>
+            <button class="category-btn" onclick="filterProducts('electronics')">Electronics</button>
+            <button class="category-btn" onclick="filterProducts('fashion')">Fashion</button>
+            <button class="category-btn" onclick="filterProducts('furniture')">Furniture</button>
+            <button class="category-btn" onclick="filterProducts('food')">Food & Drinks</button>
+            <button class="category-btn" onclick="filterProducts('books')">Books</button>
+            <button class="category-btn" onclick="filterProducts('sports')">Sports</button>
+            <button class="category-btn" onclick="filterProducts('beauty')">Beauty</button>
+            <button class="category-btn" onclick="filterProducts('services')">Services</button>
+            <button class="category-btn" onclick="filterProducts('other')">Other</button>
+        </div>
+        
+        <div class="products-grid" id="productsGrid">
+            <% products.forEach(product => { %>
+                <div class="product-card" data-category="<%= product.category %>" data-images="<%= JSON.stringify(product.images || [product.image].filter(Boolean)) %>" data-title="<%= product.title %>">
+                    <div class="product-image" onclick="openImageViewer(this.closest('.product-card'))">
+                        <% 
+                        const displayImages = product.images || [product.image].filter(Boolean);
+                        const mainImage = displayImages.length > 0 ? displayImages[0] : null;
+                        %>
+                        <% if (mainImage) { %>
+                            <img src="<%= mainImage %>" alt="<%= product.title %>">
+                            <% if (displayImages.length > 1) { %>
+                                <div class="image-count-badge">
+                                    <i class="fas fa-images"></i> <%= displayImages.length %>
+                                </div>
+                            <% } %>
+                        <% } else { %>
+                            <i class="fas fa-image" style="font-size: 48px; color: #ccc;"></i>
+                        <% } %>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title"><%= product.title %></h3>
+                        <p class="product-price"><%= product.price %></p>
+                        <p class="product-seller">Posted by: <a href="/seller/<%= product.seller._id %>" style="color: var(--primary); text-decoration: none; font-weight: 500;"><%= product.seller.shopName || product.seller.name %></a><% if (product.seller.verified) { %> <i class="fas fa-check-circle" style="color: #28a745;" title="Verified Seller"></i><% } %></p>
+                        <div class="product-actions">
+                            <button class="contact-seller" data-whatsapp="<%= product.seller.whatsapp %>" data-message="<%= (product.whatsappMessage || '').replace(/"/g, '&quot;') %>" data-title="<%= product.title.replace(/"/g, '&quot;') %>">
+                                <i class="fab fa-whatsapp"></i> Contact via WhatsApp
+                            </button>
+                            <% if (user && user._id !== product.seller._id) { %>
+                                <button class="report-user-btn" onclick="reportUser('<%= product.seller._id %>', '<%= product.seller.name %>')">
+                                    <i class="fas fa-flag"></i> Report User
+                                </button>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <!-- Image Viewer Modal -->
+    <div id="imageViewerModal" class="image-viewer-modal">
+        <div class="image-viewer-content">
+            <button class="image-viewer-close" onclick="closeImageViewer()">&times;</button>
+            <button class="image-viewer-nav image-viewer-prev" onclick="prevImage()">&#10094;</button>
+            <img id="imageViewerImage" class="image-viewer-image" src="" alt="">
+            <button class="image-viewer-nav image-viewer-next" onclick="nextImage()">&#10095;</button>
+            <div id="imageViewerCounter" class="image-viewer-counter">1 / 1</div>
+        </div>
+    </div>
+
+    <script>
+        let currentCategory = 'all';
+        let searchTerm = '';
+
+        function filterProducts(category) {
+            const buttons = document.querySelectorAll('.category-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            currentCategory = category;
+            applyFilters();
+        }
+
+        function searchProducts() {
+            searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                const category = card.dataset.category;
+                const title = card.querySelector('.product-title').textContent.toLowerCase();
+                const seller = card.querySelector('.product-seller').textContent.toLowerCase();
+                const price = card.querySelector('.product-price').textContent.toLowerCase();
+
+                const matchesCategory = currentCategory === 'all' || category === currentCategory;
+                const matchesSearch = !searchTerm ||
+                    title.includes(searchTerm) ||
+                    seller.includes(searchTerm) ||
+                    price.includes(searchTerm) ||
+                    category.includes(searchTerm);
+
+                if (matchesCategory && matchesSearch) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize search functionality and WhatsApp buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', searchProducts);
+
+            // Add event listeners for WhatsApp buttons
+            document.querySelectorAll('.contact-seller').forEach(button => {
+                if (!button.hasAttribute('disabled')) {
+                    button.addEventListener('click', function() {
+                        const whatsapp = this.getAttribute('data-whatsapp');
+                        const customMessage = this.getAttribute('data-message');
+                        const title = this.getAttribute('data-title');
+                        contactSeller(whatsapp, customMessage, title);
+                    });
+                }
+            });
+        });
+
+        function contactSeller(whatsapp, customMessage, title) {
+            if (whatsapp) {
+                // Show buyer caution before contacting seller
+                const cautionConfirmed = confirm(`⚠️ BUYER SAFETY REMINDER ⚠️\n\nBefore contacting the seller:\n• Meet in a safe, public location on campus\n• Inspect the item before paying\n• Never send money before seeing the item\n• Trust your instincts - report suspicious activity\n\nDo you want to continue contacting this seller?`);
+                
+                if (!cautionConfirmed) {
+                    return; // User cancelled
+                }
+                
+                const defaultMessage = `Hi! I'm interested in your ${title} product.`;
+                const message = customMessage || defaultMessage;
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/${whatsapp.replace(/\D/g, '')}?text=${encodedMessage}`);
+            } else {
+                alert('Seller WhatsApp not available.');
+            }
+        }
+        
+        function reportUser(userId, userName) {
+            const reason = prompt(`Why are you reporting ${userName}? Please provide a reason:`);
+            if (reason && reason.trim()) {
+                fetch('/report-user', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        reportedUserId: userId,
+                        reason: reason.trim()
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Thank you for your report. We will review it shortly.');
+                    } else {
+                        alert('Failed to submit report. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to submit report. Please try again.');
+                });
+            }
+        }
+
+        // Image Viewer functionality
+        let currentImages = [];
+        let currentImageIndex = 0;
+        let currentProductTitle = '';
+
+        function openImageViewer(productCard) {
+            const imagesData = productCard.getAttribute('data-images');
+            const title = productCard.getAttribute('data-title');
+            
+            try {
+                currentImages = JSON.parse(imagesData);
+                currentImageIndex = 0;
+                currentProductTitle = title;
+                
+                if (currentImages.length > 0) {
+                    updateImageViewer();
+                    const modal = document.getElementById('imageViewerModal');
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                }
+            } catch (e) {
+                console.error('Error parsing image data:', e);
+            }
+        }
+
+        function closeImageViewer() {
+            const modal = document.getElementById('imageViewerModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function nextImage() {
+            if (currentImages.length > 1) {
+                currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+                updateImageViewer();
+            }
+        }
+
+        function prevImage() {
+            if (currentImages.length > 1) {
+                currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+                updateImageViewer();
+            }
+        }
+
+        function updateImageViewer() {
+            const imageElement = document.getElementById('imageViewerImage');
+            const counterElement = document.getElementById('imageViewerCounter');
+            
+            if (currentImages.length > 0) {
+                imageElement.src = currentImages[currentImageIndex];
+                counterElement.textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
+            }
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('imageViewerModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeImageViewer();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('imageViewerModal');
+            if (modal.style.display === 'flex') {
+                if (e.key === 'Escape') {
+                    closeImageViewer();
+                } else if (e.key === 'ArrowLeft') {
+                    prevImage();
+                } else if (e.key === 'ArrowRight') {
+                    nextImage();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

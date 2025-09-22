@@ -1,0 +1,54 @@
+[
+  {
+    "_id": "1d7ce898-d531-41b8-b6b6-f75179fd25d9",
+    "authorId": "9db44017-7d67-4774-ab4b-c9dc78fe6e79",
+    "content": "victory doughnuts tast very good",
+    "images": [],
+    "likes": [
+      "9db44017-7d67-4774-ab4b-c9dc78fe6e79",
+      "f695a27d-ad1c-44d1-9024-1aa832f492a5"
+    ],
+    "comments": [
+      {
+        "_id": "1758181256338g9uoo3d2c",
+        "authorId": "9db44017-7d67-4774-ab4b-c9dc78fe6e79",
+        "content": "wow",
+        "authorName": "Daniel Oyasor",
+        "createdAt": "2025-09-18T07:40:56.398Z"
+      },
+      {
+        "_id": "1758181848369efek7jbfu",
+        "authorId": "f695a27d-ad1c-44d1-9024-1aa832f492a5",
+        "content": "its honestly not bad",
+        "authorName": "adam sandler",
+        "createdAt": "2025-09-18T07:50:48.369Z"
+      }
+    ],
+    "shares": 4,
+    "active": false,
+    "createdAt": "2025-09-18T07:37:14.816Z"
+  },
+  {
+    "_id": "5919f27f-4a7c-4d80-8e8f-eea0d173566f",
+    "authorId": "f695a27d-ad1c-44d1-9024-1aa832f492a5",
+    "content": "scenery",
+    "images": [
+      "/uploads/1758181901773.jpg"
+    ],
+    "likes": [
+      "9db44017-7d67-4774-ab4b-c9dc78fe6e79"
+    ],
+    "comments": [
+      {
+        "_id": "1758181929617jd99ejbq8",
+        "authorId": "f695a27d-ad1c-44d1-9024-1aa832f492a5",
+        "content": "the view is pretty nice",
+        "authorName": "adam sandler",
+        "createdAt": "2025-09-18T07:52:09.617Z"
+      }
+    ],
+    "shares": 0,
+    "active": true,
+    "createdAt": "2025-09-18T07:51:41.893Z"
+  }
+]
