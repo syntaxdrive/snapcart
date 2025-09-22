@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Sellit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2C3E50;
+            --secondary: #fff;
+            --accent: #87CEEB;
+            --light: #f0f8ff;
+            --dark: #2C3E50;
+            --gray: #708090;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .terms-content {
+            background: var(--secondary);
+            padding: 40px;
+            margin: 100px auto 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .terms-header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 20px;
+        }
+
+        .terms-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .terms-header p {
+            color: var(--gray);
+            font-size: 16px;
+        }
+
+        .terms-section {
+            margin-bottom: 30px;
+        }
+
+        .terms-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+        }
+
+        .terms-section h3 {
+            font-size: 18px;
+            color: var(--dark);
+            margin: 20px 0 10px;
+            font-weight: 600;
+        }
+
+        .terms-section p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .terms-section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .terms-section li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .highlight-box {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+
+        .highlight-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .contact-info {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .contact-info p {
+            margin-bottom: 5px;
+        }
+
+        .last-updated {
+            text-align: center;
+            color: var(--gray);
+            font-size: 14px;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--light);
+        }
+
+        @media (max-width: 768px) {
+            .terms-content {
+                padding: 20px;
+                margin: 80px auto 20px;
+            }
+
+            .terms-header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <%- include('./partials/header') %>
+
+    <div class="container">
+        <div class="terms-content">
+            <div class="terms-header">
+                <h1>Terms of Service</h1>
+                <p>Last updated: September 17, 2025</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing and using Sellit, the University of Ibadan student marketplace, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>2. Description of Service</h2>
+                <p>Sellit is an online marketplace platform designed exclusively for University of Ibadan students and staff to buy and sell goods and services. The platform facilitates connections between buyers and sellers within the university community.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>3. User Eligibility</h2>
+                <p>To use Sellit, you must:</p>
+                <ul>
+                    <li>Be a current student or staff member of the University of Ibadan</li>
+                    <li>Be at least 18 years old</li>
+                    <li>Provide accurate and complete registration information</li>
+                    <li>Maintain the confidentiality of your account credentials</li>
+                    <li>Use a valid University of Ibadan email address for verification</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2>4. User Responsibilities</h2>
+                <h3>General Obligations</h3>
+                <ul>
+                    <li>Provide accurate and truthful information about products and services</li>
+                    <li>Respect other users and maintain a positive community environment</li>
+                    <li>Comply with all applicable laws and university regulations</li>
+                    <li>Report suspicious activities or violations to platform administrators</li>
+                </ul>
+
+                <h3>Prohibited Activities</h3>
+                <p>You agree not to:</p>
+                <ul>
+                    <li>Post illegal, harmful, or offensive content</li>
+                    <li>Engage in fraudulent or deceptive practices</li>
+                    <li>Harass, threaten, or intimidate other users</li>
+                    <li>Share personal information of others without consent</li>
+                    <li>Use the platform for commercial purposes outside the university community</li>
+                    <li>Attempt to hack, disrupt, or interfere with platform operations</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2>5. Product Listings and Transactions</h2>
+                <h3>Seller Responsibilities</h3>
+                <ul>
+                    <li>Accurately describe products and their condition</li>
+                    <li>Set reasonable and fair prices</li>
+                    <li>Deliver products as described in listings</li>
+                    <li>Respond promptly to buyer inquiries</li>
+                    <li>Complete transactions in good faith</li>
+                </ul>
+
+                <h3>Buyer Responsibilities</h3>
+                <ul>
+                    <li>Review product descriptions carefully before purchasing</li>
+                    <li>Make payments promptly for agreed purchases</li>
+                    <li>Communicate clearly with sellers</li>
+                    <li>Report any issues with purchases to administrators</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>⚠️ Important Notice</h4>
+                    <p>All transactions occur between users directly. Sellit is not responsible for the quality, safety, or legality of products sold through the platform. Users are encouraged to meet in safe, public locations and exercise caution when conducting transactions.</p>
+                </div>
+            </div>
+
+            <div class="terms-section">
+                <h2>6. Content and Intellectual Property</h2>
+                <p>By posting content on Sellit, you grant us a non-exclusive, royalty-free license to use, display, and distribute your content in connection with the platform. You retain ownership of your content and are responsible for ensuring you have the right to post it.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>7. Privacy and Data Protection</h2>
+                <p>Your privacy is important to us. Please review our Privacy Policy, which also governs your use of Sellit, to understand our practices regarding the collection and use of your personal information.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>8. Account Suspension and Termination</h2>
+                <p>We reserve the right to suspend or terminate your account at any time for violations of these terms, illegal activity, or at our discretion. You may also terminate your account at any time by contacting us.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>9. Disclaimers and Limitations</h2>
+                <p>Sellit is provided "as is" without warranties of any kind. We do not guarantee the accuracy of listings, the behavior of other users, or the availability of the platform. We are not liable for any damages arising from your use of the platform.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>10. Dispute Resolution</h2>
+                <p>In case of disputes between users, we encourage amicable resolution. If this is not possible, disputes should be reported to platform administrators. We may assist in mediation but are not responsible for resolving disputes between users.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>11. Changes to Terms</h2>
+                <p>We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting on the platform. Your continued use of Sellit constitutes acceptance of the modified terms.</p>
+            </div>
+
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p>If you have questions about these Terms of Service, please contact us:</p>
+                <p><strong>Email:</strong> support@sellit.ui.edu.ng</p>
+                <p><strong>Phone:</strong> +234 XXX XXX XXXX</p>
+                <p><strong>Address:</strong> University of Ibadan, Ibadan, Nigeria</p>
+            </div>
+
+            <div class="last-updated">
+                These terms of service were last updated on September 17, 2025.
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <%- include('./partials/footer') %>
+</body>
+</html>

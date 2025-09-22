@@ -1,0 +1,13 @@
+[
+  {
+    "_id": "2ffc1a49-d694-4c8e-aabb-3fff80c43119",
+    "title": "headphone",
+    "description": "red and black",
+    "price": "₦6000",
+    "category": "textbooks",
+    "image": "/uploads/1758115779090.png",
+    "whatsappMessage": "",
+    "seller": "9db44017-7d67-4774-ab4b-c9dc78fe6e79",
+    "createdAt": "2025-09-17T13:29:39.159Z"
+  }
+]

@@ -54,9 +54,9 @@ async function createAdminAccounts() {
 }
 
 // Import models and routes
-const User = require('../models/User');
-const Product = require('../models/Product');
-const SellerApplication = require('../models/SellerApplication');
+const User = require('../../models/User');
+const Product = require('../../models/Product');
+const SellerApplication = require('../../models/SellerApplication');
 
 const app = express();
 
@@ -105,11 +105,11 @@ passport.deserializeUser(async (id, done) => {
 
 // Set view engine
 app.set('view engine', 'ejs');
-app.set('views', './views');
+app.set('views', '../../views');
 
 // Static files
-app.use(express.static('public'));
-app.use('/uploads', express.static('public/uploads'));
+app.use(express.static('../../public'));
+app.use('/uploads', express.static('../../public/uploads'));
 
 // Routes
 app.get('/', (req, res) => {
